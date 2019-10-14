@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" type="image/png"  href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/new.css')}}"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial;
+  color: white;
+}
+
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.left {
+  left: 0;
+  background-image:linear-gradient(to right,#aeebb3,blue);;
+}
+
+.right {
+  right: 0;
+  background-image:linear-gradient(to right,#aeebb3,blue);
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Megrim");
+a {
+  font-family: "Megrim", cursive;
+  width: 220px;
+  height: 220px;
+  min-width: 220px;
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.2);
+  -webkit-clip-path: polygon(24% 5%, 76% 5%, 100% 50%, 76% 95%, 24% 95%, 0 50%);
+          clip-path: polygon(24% 5%, 76% 5%, 100% 50%, 76% 95%, 24% 95%, 0 50%);
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: -1px -1px 0 rgba(16, 75, 121, 0.6);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  box-shadow: inset -20px -20px 80px rgba(0, 0, 0, 0.2), inset 20px 20px 80px rgba(255, 255, 255, 0.4);
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  transition: all 0.4s linear;
+}
+a span {
+  z-index: 2;
+  max-width: 90%;
+}
+a:before, a:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  transition: all 0.4s linear;
+}
+a:before {
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 50%);
+}
+a:after {
+  opacity: 0;
+  background: linear-gradient(-240deg, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.3) 50%);
+}
+a:hover {
+  opacity: 0.8;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: -1px -1px 0 rgba(16, 75, 121, 0.6), 8px 8px 0px rgba(255, 255, 255, 0.4), 16px 16px 0px rgba(255, 255, 255, 0.2);
+  box-shadow: inset -20px -20px 80px rgba(255, 255, 255, 0.4), inset 20px 20px 80px rgba(255, 255, 255, 0.2);
+  -webkit-transform: scale(0.85);
+          transform: scale(0.85);
+}
+a:hover:after {
+  opacity: 1;
+}
+a:hover:before {
+  opacity: 0;
+}
+
+/* Center the demo */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #607d8b;
+  background: radial-gradient(ellipse at center, #24618c 35%, #00bcd4);
+}
+
+a {
+  font-family: 'Megrim', cursive;
+  width: 220px;
+  height: 220px;
+  min-width: 220px;
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.2);
+  -webkit-clip-path: polygon(24% 5%, 76% 5%, 100% 50%, 76% 95%, 24% 95%, 0 50%);
+          clip-path: polygon(24% 5%, 76% 5%, 100% 50%, 76% 95%, 24% 95%, 0 50%);
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: -1px -1px 0 rgba(16, 75, 121, 0.6);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  box-shadow: inset -20px -20px 80px rgba(0, 0, 0, 0.2), inset 20px 20px 80px rgba(255, 255, 255, 0.4);
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  transition: all .4s linear;
+}
+a span {
+  z-index: 2;
+  max-width: 90%;
+}
+a:before, a:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  transition: all 0.4s linear;
+}
+a:before {
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 50%);
+}
+a:after {
+  opacity: 0;
+  background: linear-gradient(-240deg, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.3) 50%);
+}
+a:hover {
+  opacity: 0.8;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: -1px -1px 0 rgba(16, 75, 121, 0.6), 8px 8px 0px rgba(255, 255, 255, 0.4), 16px 16px 0px rgba(255, 255, 255, 0.2);
+  box-shadow: inset -20px -20px 80px rgba(255, 255, 255, 0.4), inset 20px 20px 80px rgba(255, 255, 255, 0.2);
+  -webkit-transform: scale(0.85);
+          transform: scale(0.85);
+}
+a:hover:after {
+  opacity: 1;
+}
+a:hover:before {
+  opacity: 0;
+}
+
+/* Center the demo */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #607d8b;
+  background-image: linear-gradient(to right, #24618c 35%, #00BCD4);
+}
+
+</style>
+</head>
+<body>
+    <nav class="main-navigation" >
+        <div class="container clearfix">
+                   <div class="site-logo-wrap">
+                <a class="logo" href="#"><img href="{{ url_for('static',filename='images/logo.png')}}" alt="Uwepo"></a>
+            </div>
+            <a href="javascript:void(0)" class="menu-trigger hidden-lg-up"><span>&nbsp;</span></a>
+            <div class="main-menu hidden-md-down">
+                <ul class="menu-list" style='color:black;'>
+                    <li><a class="nav-link" href="#About" data-target="#About">About</a></li>
+                    <li><a class="nav-link" href="#Portfolio" data-target="#Portfolio">Portfolio</a></li>
+                    <li><a class="nav-link" href="#ContactUs" data-target="#ContactUs">Contact</a></li>
+                    <li> <a class="nav-item nav-link " href="{{ url_for('users.register') }}">Register</a></li>
+                    <li><a class="nav-item nav-link" href="{{ url_for('users.login') }}">Login</a></li>
+             
+                </ul>
+            </div>
+        </div>
+       
+    </nav>
+
+<div class="split left">
+  <div class="centered">
+      <div class="profile-border">
+          <div class="profile">
+              <a  href="{{ url_for('posts.new_vlog') }}"><span><i class="fas fa-video"></i></span></a>
+
+            </div>
+      </div>
+      <text>Vlog</text>
+  
+    
+  </div>
+</div>
+
+<div class="split right">
+  <div class="centered">
+      <div class="profile-border">
+          <div class="profile">
+              <a  href="{{ url_for('posts.blog') }}"><span>B</span></a>
+      
+      </div>
+      </div>
+      <text>Blog</text>
+  </div>
+</div>
+     
+</body>
+</html> 

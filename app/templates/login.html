@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+        
+        <title>Mimi</title>
+
+    <meta id=#utf-8 charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="msapplication-TileColor" content="#ffffff"/>
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png"/>
+    <meta name="theme-color" content="#ffffff"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css')}}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/custom.css')}}"/>
+    
+    <link rel ="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" >
+   
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+    
+    <link rel="icon" type="image/png"  href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+    
+</head>
+<style>
+body {
+        background-image:linear-gradient(to right,#aeebb3,blue);
+        margin-top:100px !important ;
+        color:#fff;
+      }
+.box{
+  width: 20px;
+  padding: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: #191919;
+  text-align: center;
+      box-shadow: -1px 92px 99px -62px rgba(3, 107, 255, 0.27), 0 1px 6px 0 rgba(10, 48, 255, 0.48);
+    border-radius: 5px;
+}
+.box h1{
+  color: white;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.box input[type = "text"],.box input[type = "password"]{
+  border:0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #3498db;
+  padding: 14px 10px;
+  width: 200px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+  
+}
+.box a
+{
+  border:0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #3498db;
+  padding: 14px 10px;
+  width: 200px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+  width:10%;
+}
+.box input[type = "text"]:focus,.box input[type = "password"]:focus{
+  width: 280px;
+  animation: 9s colorChange alternate;
+  transition: height 0.3s, width 0.3s 0.1s;
+  
+  
+}
+.box input[type = "submit"]{
+  border:0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #2ecc71;
+  padding: 14px 40px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+  cursor: pointer;
+}
+.box a[type = "submit"]{
+  border:0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #2ecc71;
+  padding: 14px 40px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+  cursor: pointer;
+}
+.box input[type = "submit"]:hover{
+  background: #2ecc71;
+}
+.box a[type = "submit"]:hover{
+  background: #2ecc71;
+}
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+@keyframes colorChange {
+  0%   { border-color: #007bff;  }
+  5%  { border-color: #6610f2; }
+  10%  { border-color: #6f42c1;}
+  15%  { border-color: #e83e8c; }
+  20% { border-color: #dc3545;}
+   25%   { border-color: #fd7e14;  }
+  30%  { border-color: #ffc107; }
+  35%  { border-color: #28a745;}
+  40%  { border-color: #20c997; }
+  45%  { border-color: #17a2b8;}
+  50%  { border-color: #6c757d;  }
+  55%  { border-color: #343a40; }
+  60%  { border-color: #007bff;}
+  65%  { border-color: #6c757d; }
+  70% { border-color: #28a745;}
+  75% { border-color: #17a2b8;}
+  80% { border-color: #ffc107;}
+  85% { border-color: #dc3545;}
+  90% { border-color: #343a40;}
+  95% { border-color: #28a745;}
+  100% { border-color: #20c997;}
+}</style>
+<body>
+        <nav class="main-navigation">
+                <div class="container clearfix">
+                          <div class="site-logo-wrap">
+                            <a class="logo" href="#">
+                              <img href="{{ url_for('static',filename='images/logo.png')}}" alt="Uwepo"></a>
+                    </div>
+                    <a href="javascript:void(0)" class="menu-trigger hidden-lg-up"><span>&nbsp;</span></a>
+                    
+                </div>
+            </nav>
+<div class="container">
+    <div class="content-section">
+            <form method="POST" action="" enctype="multipart/form-data" >
+                    {{ form.hidden_tag() }}
+                    <fieldset class="form-group">
+                        <legend class="border-bottom mb-4">Log In</legend>
+                        <div class="form-group">
+                            {{ form.email.label(class="form-control-label ") }}
+                            {% if form.email.errors %}
+                                {{ form.email(class="form-control form-control-lg is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.email.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.email(class="form-control form-control-lg") }}
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            {{ form.password.label(class="form-control-label") }}
+                            {% if form.password.errors %}
+                                {{ form.password(class="form-control form-control-lg is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.password.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.password(class="form-control form-control-lg") }}
+                            {% endif %}
+                        </div>
+                      
+                    </fieldset>
+                    
+                    <div class="form-group">
+                        {{ form.submit(class="btn btn-outline-info") }}
+                        {%for message in messages%}
+                        {{message}}
+                        {%endfor%}
+                    </div>
+                    <small class="text-muted ml-2">
+                        <a href="#">Forgot Password?</a>
+                        <div class="border-top pt-3">
+        <small class="text-muted">
+            Need An Account? <a class="ml-2" href="{{ url_for('users.register') }}">Sign Up Now</a>
+        </small>
+                    </small>
+                </form>
+            </div>
+           
+    </div>
+    
+    </div>
+</div>
+</body>
+</html>

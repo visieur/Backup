@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+        
+    <title>{{title}}</title>
+
+    <meta id=#utf-8 charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="msapplication-TileColor" content="#ffffff"/>
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png"/>
+    <meta name="theme-color" content="#ffffff"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css')}}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/custom.css')}}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel ="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" >
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" ></script>
+
+    
+   
+    <link rel="icon" type="image/png"  href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+</head>
+<body>
+
+<!--<div>
+ background-image:linear-gradient(to right,#aeebb3,blue);
+</div>-->
+<style>
+body {
+        background-color:black;
+        margin-top:100px !important ;
+        color:#fff;
+      }
+      .join{
+        color:#000;
+        text-align:center;
+      }
+      .register-left{
+        text-align:center;
+        color:#fff;
+        padding: 30px;
+      }
+      .register-left p {
+        padding: 20px 20px 0;
+      }
+      .register-left .btn-primary{
+        border-radius:1.5em;
+        border:none;
+        background:#f8f8f8;
+        font-weight: 600;
+        color:#555;
+        margin-top: 20px;
+        padding: 15px;
+        transition:all 0.5s ease-in-out;
+      }
+      .register-left .btn-primary:hover{
+        
+        color:#fff;
+        
+      }
+      .register-right {
+        border:none;
+      background-image:linear-gradient(to right,#aeebb3,blue);
+        border-top-left-radius:10% 50%;
+        border-bottom-left-radius:10% 50%;
+        padding: 50px;
+      }
+      .register-right h2 {
+        text-align:center;
+        margin-bottom: 10px;
+        color:#555;
+      }
+      
+      .register-form {
+        padding: 30px;
+        
+      }
+      
+      .register-form .btn-primary {
+        float:right;
+        padding:10px 20px;
+        border-radius:1.5rem;
+        font-weight:600;
+        color:#fff;
+        background:black;
+        border:none;
+        transition:all 0.5s ease-in-out;
+      }
+      
+      
+      
+      .register-form .btn-primary:hover{
+        background:#7e6be9;
+      }
+      .fa-arrow-circle-o-down {
+        margin-top: 60px;
+        margin-bottom: 18px;
+        width: 80px;
+        animation :mover 1s infinite alternate;
+      }
+      .profile{
+      content: '';
+      margin-left: 160px;
+      width: 120px;
+      height: 120px;
+      background:rgb(223, 206, 206);
+      
+      border-radius: 50%
+      }
+      
+      @keyframes mover{
+        0%{
+          transform:translateY(0);
+        }
+         100%{
+          transform:translateY(-20px);
+        }
+      }
+      </style>
+
+<nav class="main-navigation navbar-nav grey-3">
+    <a href="javascript:void(0)" class="menu-trigger hidden-lg-up"><span>&nbsp;</span></a>
+</nav>
+
+<div class="container">
+        <div class="row">
+          <div class="col-md-10 offset-md-1">
+            
+            <div class="row">
+              <div class="col-md-5 register-left">
+                
+      
+                
+                <p class="lead">Already have an account?<br>
+                  <i class="fa fa-arrow-circle-o-down fa-3x red"></i>
+               <br>
+                <button class="btn btn-primary btn-md"><a class="ml-3 mr-3" href="{{ url_for('users.login') }}">Login</a> </button>
+
+              </div>
+              <div class="col-md-7 register-right">
+               
+                <section class= 'profile'>
+                
+                </section>
+    
+                    <form action="" method="POST" enctype="multipart/form-data" class='register-form'>
+                      {{ form.hidden_tag() }}
+                      <div class=''>
+                         {{form.picture.label}}
+                          {{form.picture}}
+                        
+                    
+                    {%if error in form.picture.errors%}
+                    <span style="color: red;">[{{ error }}]</span>
+                    {% endif %}
+                  </div>
+                      <p >
+                          {{ form.username.label }}<br>
+                          {{ form.username(size=32) }}<br>
+                          {% for error in form.username.errors %}
+                          <span style="color: red;">[{{ error }}]</span>
+                          {% endfor %}
+                      </p>
+                      <p>
+                          {{ form.email.label }}<br>
+                          {{ form.email(size=32) }}<br>
+                          {% for error in form.email.errors %}
+                          <span style="color: red;">[{{ error }}]</span>
+                          {% endfor %}
+                      </p>
+                      <p>
+                          {{ form.password.label }}<br>
+                          {{ form.password(size=32) }}<br>
+                          {% for error in form.password.errors %}
+                          <span style="color: red;">[{{ error }}]</span>
+                          {% endfor %}
+                      </p>
+                      <p>
+                          {{ form.confirm_password.label }}<br>
+                          {{ form.confirm_password(size=32) }}<br>
+                          {% for error in form.confirm_password.errors %}
+                          <span style="color: red;">  [{{"Typo! Passwords didn't match"}}]</span>
+                          {% endfor %}
+                          {%for message in messages%}
+                          {{message}}
+                          {%endfor%}
+                          <input type='checkbox'required>
+                        
+                              <small>
+                                  You agree with Our <a href={{url_for('main.policy')}}>Privacy Policy </a>and<a href={{url_for('main.policy')}}> Terms and Conditions</a>
+                              </small>
+                      </p>
+                      <p>{{ form.submit(class="btn btn-primary")   }}</p>
+                    
+                  </form>
+                  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</body>
+</html>      

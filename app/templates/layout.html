@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <title>{{ title }}</title>
+   
+       
+
+    <meta id=#utf-8 charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="msapplication-TileColor" content="#ffffff"/>
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png"/>
+    <meta name="theme-color" content="#ffffff"/>
+    
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css')}}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/custom.css')}}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel ="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" >
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="image" type="image/png"  href="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/css/emojione.min.css"/>
+    <link rel="icon" type="image/png"  href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body data-spy="scroll" data-target=".main-navigation" data-offset="150">
+    <section id="MainContainer">
+        <!-- Header starts here -->
+        <header id="Header">
+                
+            <nav class="main-navigation" >
+                <div class="container clearfix">
+                           <div class="site-logo-wrap">
+                        <a class="logo" href="#"><img href="{{ url_for('static',filename='images/logo.png')}}" alt="Uwepo"></a>
+                    </div>
+                    <a href="javascript:void(0)" class="menu-trigger hidden-lg-up"><span>&nbsp;</span></a>
+                    <div class="main-menu hidden-md-down">
+                        <ul class="menu-list" style='color:black;'>
+                            <li><a class="nav-link" href="#About" data-target="#About">About</a></li>
+                            <li><a class="nav-link" href="#Portfolio" data-target="#Portfolio">Portfolio</a></li>
+                            <li><a class="nav-link" href="#ContactUs" data-target="#ContactUs">Contact</a></li>
+                            <li> <a class="nav-item nav-link " href="{{ url_for('users.register') }}">Register</a></li>
+                            <li><a class="nav-item nav-link" href="{{ url_for('users.login') }}">Login</a></li>
+                     
+                        </ul>
+                    </div>
+                </div>
+               
+            </nav>
+        </header>
+        <!-- Header ends here -->
+        <!-- Banner starts here -->
+        <section id="HeroBanner">
+            <div class="hero-content">
+                <h1 >Hi! &nbsp;👋 </h1>
+                <br>
+                <p>Welcome to the community </p>
+                <a href="{{ url_for('users.register') }}" class="hero-cta">Get Started</a>
+            </div>
+        </section>
+        <!-- Banner ends here -->
+        <!-- Services section starts here -->
+        <section id="Services">
+            <div class="container">
+                <div class="block-heading">
+                    <h2>Events</h2>
+                    <p>Events organized by Your Community and Organizations</p>
+                </div>
+                <div class="services-wrapper">
+                    <div class="each-service">
+                        <div class="service-icon"><i class="fa fa-desktop" aria-hidden="true"></i></div>
+                        <h5 class="service-title">LOREM IPSUM</h5>
+                        <p class="service-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                    </div>
+                    <div class="each-service">
+                        <div class="service-icon"><i class="fa fa-line-chart" aria-hidden="true"></i></div>
+                        <h5 class="service-title">LOREM IPSUM</h5>
+                        <p class="service-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                    </div>
+                    <div class="each-service">
+                        <div class="service-icon"><i class="fa fa-paper-plane" aria-hidden="true"></i></div>
+                        <h5 class="service-title">LOREM IPSUM</h5>
+                        <p class="service-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                    </div>
+                    <div class="each-service">
+                        <div class="service-icon"><i class="fa fa-university" aria-hidden="true"></i></div>
+                        <h5 class="service-title">LOREM IPSUM</h5>
+                        <p class="service-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                    </div>
+                    <div class="each-service">
+                        <div class="service-icon"><i class="fa fa-camera-retro" aria-hidden="true"></i></div>
+                        <h5 class="service-title">LOREM IPSUM</h5>
+                        <p class="service-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                    </div>
+                    <div class="each-service">
+                        <div class="service-icon"><i class="fa fa-shopping-bag" aria-hidden="true"></i></div>
+                        <h5 class="service-title">LOREM IPSUM</h5>
+                        <p class="service-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Services section ends here -->
+        <!-- About Us section starts here -->
+        <section id="About">
+            <div class="container">
+                <div class="about-wrapper">
+                     <h2>About Us</h2>
+                    <p> We believe that you can share your story...<br>
+                        Give others hope ...<br>
+                        Tap on hope that there is!!<br>
+                    </p> 
+                    
+                </div>
+            </div>
+        </section>
+        <!-- About Us section ends here -->
+        <!-- Portfolio section starts here -->
+        <section id="Portfolio">
+            <div class="container">
+                <div class="block-heading">
+                    <h2>Portfolio</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                </div>
+                <div class="portfolio-wrapper clearfix">
+                    <a class="each-portfolio" data-fancybox="gallery" href="{{ url_for('static',filename='images/p-one.jpg')}}">
+                    <img src="{{ url_for('static',filename='images/p-one.jpg')}}" alt="p-one">
+                    <div class="hover-cont-wrap">
+                        <div class="hover-cont-block">
+                           <h5 class="p-title">Title</h5>
+                            <div class="p-desc">
+                                <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+                                <div class="icon-div"><i class="fa fa-search-plus" aria-hidden="true"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                   </a>
+                    <a class="each-portfolio" data-fancybox="gallery" href="{{ url_for('static',filename='images/p-two.jpg')}}">
+                    <img src="{{ url_for('static',filename='images/p-two.jpg')}}" alt="p-one">
+                    <div class="hover-cont-wrap">
+                        <div class="hover-cont-block">
+                           <h5 class="p-title">Title</h5>
+                           <div class="p-desc">
+                                <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+                                <div class="icon-div"><i class="fa fa-search-plus" aria-hidden="true"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                   </a>
+                    <a class="each-portfolio" data-fancybox="gallery" href="{{ url_for('static',filename='images/p-three.jpg')}}">
+                    <img src="{{ url_for('static',filename='images/p-three.jpg')}}" alt="p-one">
+                    <div class="hover-cont-wrap">
+                       <div class="hover-cont-block">
+                           <h5 class="p-title">Title</h5>
+                           <div class="p-desc">
+                                <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+                                <div class="icon-div"><i class="fa fa-search-plus" aria-hidden="true"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                   </a>
+                    <a class="each-portfolio" data-fancybox="gallery" href="{{ url_for('static',filename='images/p-four.jpg')}}">
+                    <img src="{{ url_for('static',filename='images/p-four.jpg')}}" alt="p-one">
+                    <div class="hover-cont-wrap">
+                        <div class="hover-cont-block">
+                           <h5 class="p-title">Title</h5>
+                           <div class="p-desc">
+                                <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+                                <div class="icon-div"><i class="fa fa-search-plus" aria-hidden="true"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                   </a>
+                    <a class="each-portfolio" data-fancybox="gallery" href="{{ url_for('static',filename='gifs/giphy.gif')}}">
+                    <img src="{{ url_for('static',filename='gifs/giphy.gif')}}" alt="p-one">
+                    <div class="hover-cont-wrap">
+                        <div class="hover-cont-block">
+                           <h5 class="p-title">Title</h5>
+                           <div class="p-desc">
+                                <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+                                <div class="icon-div"><i class="fa fa-search-plus" aria-hidden="true"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                   </a>
+                    <a class="each-portfolio" data-fancybox="gallery" href="{{ url_for('static',filename='images/p-six.jpg')}}">
+                    <img src="{{ url_for('static',filename='images/p-six.jpg')}}" alt="p-one">
+                    <div class="hover-cont-wrap">
+                        <div class="hover-cont-block">
+                           <h5 class="p-title">Title</h5>
+                           <div class="p-desc">
+                                <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+                                <div class="icon-div"><i class="fa fa-search-plus" aria-hidden="true"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                   </a>
+                    <a class="each-portfolio" data-fancybox="gallery" href="{{ url_for('static',filename='images/p-one.jpg')}}">
+                    <img src="{{ url_for('static',filename='images/p-one.jpg')}}" alt="p-one">
+                    <div class="hover-cont-wrap">
+                        <div class="hover-cont-block">
+                           <h5 class="p-title">Title</h5>
+                           <div class="p-desc">
+                                <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+                                <div class="icon-div"><i class="fa fa-search-plus" aria-hidden="true"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                   </a>
+                    <a class="each-portfolio" data-fancybox="gallery" href="{{ url_for('static',filename='images/p-two.jpg')}}">
+                    <img src="{{ url_for('static',filename='images/p-two.jpg')}}" alt="p-one">
+                    <div class="hover-cont-wrap">
+                        <div class="hover-cont-block">
+                           <h5 class="p-title">Title</h5>
+                           <div class="p-desc">
+                                <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+                                <div class="icon-div"><i class="fa fa-search-plus" aria-hidden="true"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                   </a>
+                    <a class="each-portfolio" data-fancybox="gallery" href="{{ url_for('static',filename='images/p-three.jpg')}}">
+                    <img src="{{ url_for('static',filename='images/p-three.jpg')}}" alt="p-one">
+                    <div class="hover-cont-wrap">
+                        <div class="hover-cont-block">
+                            <h5 class="p-title">Title</h5>
+                            <div class="p-desc">
+                                <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+                                <div class="icon-div"><i class="fa fa-search-plus" aria-hidden="true"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                   </a>
+                </div>
+            </div>
+        </section>
+        <!-- Portfolio section ends here -->
+        <section id="Testimonial">
+          <div class="testimonial-wrap">
+          <div class="container">
+            <div class="block-heading">
+              <h2>What Clients Say About Us</h2>
+            </div>
+            <ul class="testimonial-slider">
+              <li>" I Lorem ipsum dolor sit amet consectetur adipisicing elit<br> lorem ipsum dolor sit amet</li>
+              <li>" Lorem ipsum dolor sit amet consectetur adipisicing elit<br> I have received both online and offline in a long time. "</li>
+              <li>" Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum <br>  </li>
+            </ul>
+          </div>
+        </div>
+        </section>
+        <!-- Contact us section starts here -->
+        <section id="ContactUs">
+            <div class="container contact-container">
+                <h3 class="contact-title">Get In Touch</h3>
+                <div class="contact-outer-wrapper">
+                    <div class="address-block">
+                        <p class="add-title">Contact Details</p>
+                        <div class="c-detail">
+                            <span class="c-icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span> <span class="c-info">12 Avenue center, st. marks road, CA</span>
+                        </div>
+                        <div class="c-detail">
+                            <span class="c-icon"><i class="fa fa-phone" aria-hidden="true"></i></span> <span class="c-info">+41982399090000</span>
+                        </div>
+                        <div class="c-detail">
+                            <span class="c-icon"><i class="fa fa-envelope" aria-hidden="true"></i></span> <span class="c-info">click@gmail.com</span>
+                        </div>
+                    </div>
+                    <div class="form-wrap">
+                        <p class="add-title">Send Us Message</p>
+                        <form>
+                            <div class="fname floating-label">
+                                <input type="text" class="floating-input" name="full name" id="full-name-field" />
+                                <label for="full-name-field">Full Name</label>
+                            </div>
+                            <div class="email floating-label">
+                                <input type="email" class="floating-input" name="email" id="mail-field" />
+                                <label for="mail-field">Email</label>
+                            </div>
+                            <div class="contact floating-label">
+                                <input type="tel" class="floating-input" name="contact" id="contact-us-field" />
+                                <label for="contact-us-field">Contact</label>
+                            </div>
+                            <div class="company floating-label">
+                                <input type="text" class="floating-input" name="company" id="company-field" />
+                                <label for="company-field">Company</label>
+                            </div>
+                            <div class="user-msg floating-label">
+                                <textarea class="floating-input" name="user message" id="user-msg-field"></textarea>
+                                <label for="user-msg-field" class="msg-label">Your Message</label>
+                            </div>
+                            <div class="submit-btn">
+                                <button type="submit">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Contact us section ends here -->
+        <!-- Footer section starts here -->
+        <footer id="Footer">
+            <div class="container centered">
+                <div class="social-share">
+                    <ul>
+                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+                <div class="footer-logo-wrap">
+                    Visieur &copy; 2019. Designed by A Group Of People Who helped Each Other :)
+                </div>
+            </div>
+        </footer>
+        <!-- Footer section ends here -->
+    </section>
+</body>
+
+</html>

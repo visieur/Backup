@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel ="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" >
+  <title>Vlog</title>
+</head>
+
+<style>
+body {
+    background-image:url('https://media4.giphy.com/media/fNmjTu0ltUvJK/giphy.gif');
+    background-repeat:repeat; 
+    margin: 0;
+    padding: 0;
+  }
+  
+.button {
+  cursor: pointer;
+  display: block;
+  width: 160px;
+  border: 1px solid black;
+  font-size: 16px;
+  text-align: center;
+  padding-top: 2px;
+  padding-bottom: 4px;
+  color: white;
+  background-color: darkgreen;
+  text-decoration: none;
+}
+#video{
+  margin:0 60px auto ;
+  margin-left: 270px;
+  object-fit: auto;
+    width: 700px;
+    height:540px;
+    padding: 10px;
+    padding-left: 60px;
+    border-radius:30px;
+    background: black;
+    -webkit-box-shadow: 0 1px 10px linear-gradient(to right,blue,red);;
+    -moz-box-shadow: 0 1px 10px linear-gradient(to right,blue,red);;
+    -ms-box-shadow: 0 1px 10px linear-gradient(to right,blue,red);;
+    -o-box-shadow: 0 1px 10px linear-gradient(to right,blue,red);;
+    box-shadow: 0 1px 10px linear-gradient(to right,blue,red);;
+    z-index: inherit
+}
+  
+  </style>
+ 
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container clearfix">
+                   <div class="site-logo-wrap">
+                <a class="logo" href="{{url_for('main.base')}}"><img href="{{ url_for('static',filename='images/logo.png')}}" alt="Uwepo"></a>
+            </div>
+            <a href="javascript:void(0)" class="menu-trigger hidden-lg-up"><span>&nbsp;</span></a>
+                    <li> <a class="nav-item nav-link " href="{{ url_for('main.home') }}">Home</a></li>
+                    <li><a class="nav-item nav-link" href="{{ url_for('posts.new_blog') }}">Blog</a></li>
+             
+                </ul>
+            </div>
+        </div>
+       
+    </nav>
+  <div id='video-container'>
+      <video id="video" autoplay ></video>
+
+  </div>
+    <div id="startButton" class="button">
+        
+      </div>
+      <div id="stopButton" class="button">
+        Stop
+      </div>
+      <h2 class='right'>Recording</h2>
+      <video id="recording" width="160" height="120" controls></video>
+      <a id="downloadButton" class="button">
+        Download
+      </a>
+    </div>
+    <small>
+      <pre id="log"></pre>
+    </small>
+
+  
+</body>
+<script type="text/javascript">
+        
+  let video = document.getElementById("video");
+  let recording = document.getElementById("recording");
+  let startButton = document.getElementById("startButton");
+  let stopButton = document.getElementById("stopButton");
+  let downloadButton = document.getElementById("downloadButton");
+  let logElement = document.getElementById("log");
+  
+  let recordingTimeMS = 5000;
+  
+        
+  function log(msg) {
+    logElement.innerHTML += msg + "\n";
+  }
+  function wait(delayInMS) {
+    return new Promise(resolve => setTimeout(resolve, delayInMS));
+  }
+  function startRecording(stream, lengthInMS) {
+    let recorder = new MediaRecorder(stream);
+    let data = [];
+   
+    recorder.ondataavailable = event => data.push(event.data);
+    recorder.start();
+    log(recorder.state + " for " + (lengthInMS/1000) + " seconds...");
+   
+    let stopped = new Promise((resolve, reject) => {
+      recorder.onstop = resolve;
+      recorder.onerror = event => reject(event.name);
+    });
+  
+    let recorded = wait(lengthInMS).then(
+      () => recorder.state == "recording" && recorder.stop()
+    );
+   
+    return Promise.all([
+      stopped,
+      recorded
+    ])
+    .then(() => data);
+  }
+  function stop(stream) {
+    stream.getTracks().forEach(track => track.stop());
+  } 
+  startButton.addEventListener("click", function() {
+  
+    navigator.mediaDevices.getUserMedia({
+      video: true,
+      audio: true
+    }).then(stream => {
+      video.srcObject = stream;
+      downloadButton.href = stream;
+      video.captureStream = video.captureStream || video.mozCaptureStream;
+      return new Promise(resolve => video.onplaying = resolve);
+    }).then(() => startRecording(video.captureStream(), recordingTimeMS))
+    .then (recordedChunks => {
+      let recordedBlob = new Blob(recordedChunks, { type: "video/webm" });
+      recording.src = URL.createObjectURL(recordedBlob);
+      downloadButton.href = recording.src;
+      downloadButton.download = "RecordedVideo.webm";
+      
+      log("Successfully recorded " + recordedBlob.size + " bytes of " +
+          recordedBlob.type + " media.");
+    })
+    .catch(log);
+  }, false);
+  
+  stopButton.addEventListener("click", function() {
+    stop(video.srcObject);
+  }, false);
+  
+
+          </script>
+    
+</html>
