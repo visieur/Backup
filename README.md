@@ -1,1 +1,1 @@
-The backup to a demo project
+The backup to the Uwepo demo project
